@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Complex types - mixed list"""
+
+"""
+Complex types - mixed list
+
+"""
+
 from typing import Union, List
 
 
