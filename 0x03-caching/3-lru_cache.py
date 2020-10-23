@@ -39,6 +39,7 @@ class LRUCache(BaseCaching):
         return item
 
     def mv_last_list(self, item):
+        """ Moves element to last idx of list """
         length = len(self.queue)
         if self.queue[length - 1] != item:
             self.queue.remove(item)
@@ -46,4 +47,5 @@ class LRUCache(BaseCaching):
 
     @staticmethod
     def get_first_list(array):
+        """ Get first element of list or None """
         return array[0] if array else None

@@ -38,6 +38,7 @@ class MRUCache(BaseCaching):
         return item
 
     def mv_last_list(self, item):
+        """ Moves element to last idx of list """
         length = len(self.queue)
         if self.queue[length - 1] != item:
             self.queue.remove(item)
