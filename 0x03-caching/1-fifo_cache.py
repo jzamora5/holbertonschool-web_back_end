@@ -36,8 +36,10 @@ class FIFOCache(BaseCaching):
         return self.cache_data.get(key, None)
 
     def mv_last_list(self, item):
-        self.queue.remove(item)
-        self.queue.append(item)
+        length = len(self.queue)
+        if self.queue[length - 1] != item:
+            self.queue.remove(item)
+            self.queue.append(item)
 
     @staticmethod
     def get_first_list(array):
