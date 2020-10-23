@@ -25,8 +25,15 @@ class LIFOCache(BaseCaching):
                 del self.cache_data[last]
                 print("DISCARD: {}".format(last))
 
-        self.queue.append(key)
+        if key not in self.queue:
+            self.queue.append(key)
+        else:
+            self.mv_last_list(key)
 
     def get(self, key):
         """ Gets item from cache """
         return self.cache_data.get(key, None)
+
+    def mv_last_list(self, item):
+        self.queue.remove(item)
+        self.queue.append(item)

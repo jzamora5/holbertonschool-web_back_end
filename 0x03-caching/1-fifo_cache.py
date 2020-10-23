@@ -17,7 +17,11 @@ class FIFOCache(BaseCaching):
         if key is None or item is None:
             return
 
-        self.queue.append(key)
+        if key not in self.queue:
+            self.queue.append(key)
+        else:
+            self.mv_last_list(key)
+
         self.cache_data[key] = item
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
@@ -30,6 +34,10 @@ class FIFOCache(BaseCaching):
     def get(self, key):
         """ Gets item from cache """
         return self.cache_data.get(key, None)
+
+    def mv_last_list(self, item):
+        self.queue.remove(item)
+        self.queue.append(item)
 
     @staticmethod
     def get_first_list(array):
