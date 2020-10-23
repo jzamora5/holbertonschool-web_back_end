@@ -14,5 +14,4 @@ class BasicCache(BaseCaching):
 
     def get(self, key):
         """ Gets item from cache """
-
         return self.cache_data.get(key, None)
