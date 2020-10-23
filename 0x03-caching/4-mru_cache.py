@@ -42,7 +42,3 @@ class MRUCache(BaseCaching):
         if self.queue[length - 1] != item:
             self.queue.remove(item)
             self.queue.append(item)
-
-    @staticmethod
-    def get_first_list(array):
-        return array[0] if array else None
