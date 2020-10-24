@@ -33,7 +33,7 @@ class MRUCache(BaseCaching):
     def get(self, key):
         """ Gets item from cache """
         item = self.cache_data.get(key, None)
-        if item != None:
+        if item is not None:
             self.mv_last_list(key)
         return item
 
