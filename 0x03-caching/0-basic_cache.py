@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-""" Define BasicCache class. """
+
+""" Caching """
 
 from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """ A basic cache"""
+    """Basic dictionary"""
 
     def put(self, key, item):
         """Puts item in cache"""
