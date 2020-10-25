@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' Define BasicCache class. '''
+""" Define BasicCache class. """
 
 from base_caching import BaseCaching
 
