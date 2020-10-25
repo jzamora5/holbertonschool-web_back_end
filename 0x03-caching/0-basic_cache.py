@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""Caching"""
 
-BaseCaching = __import__('base_caching').BaseCaching
+""" Caching """
+
+from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
