@@ -5,14 +5,7 @@ from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """ A basic cache.
-
-        Inherits from class BaseCaching.
-
-        Attributes:
-          put - method that adds a key/value pair to cache
-          get - method that retrieves a key/value pair from cache
-    """
+    """ A basic cache"""
 
     def put(self, key, item):
         """Puts item in cache"""
