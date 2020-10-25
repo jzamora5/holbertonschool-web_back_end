@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Caching """
+""" LRU Caching """
 
 from base_caching import BaseCaching
 
