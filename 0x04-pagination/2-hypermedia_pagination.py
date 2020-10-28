@@ -58,6 +58,8 @@ class Server:
 
         if not data:
             page_size = 0
+        else:
+            page_size = len(data)
 
         prev_page = page - 1 if page > 1 else None
         next_page = page + 1 if page < total_pages else None
