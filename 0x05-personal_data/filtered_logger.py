@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Handling Personal Data
+Module for handling Personal Data
 """
 import logging
 import mysql.connector
@@ -41,8 +41,10 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
     host = environ.get("PERSONAL_DATA_DB_HOST", "localhost")
     db_name = environ.get("PERSONAL_DATA_DB_NAME")
 
-    cnx = mysql.connector.connection.MySQLConnection(user=username, password=password,
-                                                     host=host, database=db_name)
+    cnx = mysql.connector.connection.MySQLConnection(user=username,
+                                                     password=password,
+                                                     host=host,
+                                                     database=db_name)
     return cnx
 
 
@@ -68,7 +70,7 @@ class RedactingFormatter(logging.Formatter):
 
 def main():
     """
-    Obtain a database connection using get_db and retrieves all rows 
+    Obtain a database connection using get_db and retrieves all rows
     in the users table and display each row under a filtered format
     """
     db = get_db()
