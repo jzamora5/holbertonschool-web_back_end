@@ -19,3 +19,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# File to test stuff
+test_python.py
