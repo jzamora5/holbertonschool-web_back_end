@@ -80,6 +80,9 @@ class BasicAuth(Auth):
 
         found_users = User.search({'email': user_email})
 
+        if not found_users:
+            return None
+
         for user in found_users:
             if user.is_valid_password(user_pwd):
                 return user
