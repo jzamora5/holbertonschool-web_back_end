@@ -66,8 +66,7 @@ class BasicAuth(Auth):
 
         return credentials[0], credentials[1]
 
-    def user_object_from_credentials(self,
-                                     user_email: str,
+    def user_object_from_credentials(self, user_email: str,
                                      user_pwd: str) -> TypeVar('User'):
         """
         Returns the User instance based on his
@@ -79,11 +78,9 @@ class BasicAuth(Auth):
         if user_pwd is None or not isinstance(user_pwd, str):
             return None
 
-        users = User.search({
-            "email": user_email,
-        })
+        found_users = User.search({'email': user_email})
 
-        for user in users:
+        for user in found_users:
             if user.is_valid_password(user_pwd):
                 return user
 
