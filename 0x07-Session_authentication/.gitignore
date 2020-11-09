@@ -25,3 +25,6 @@ venv.bak/
 
 # File to test stuff
 test_python.py
+
+# Database
+.db_User.json
