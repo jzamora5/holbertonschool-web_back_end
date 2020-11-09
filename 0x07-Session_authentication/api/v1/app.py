@@ -22,30 +22,33 @@ if AUTH_TYPE == "auth":
 elif AUTH_TYPE == "basic_auth":
     from api.v1.auth.basic_auth import BasicAuth
     auth = BasicAuth()
+elif AUTH_TYPE == "session_auth":
+    from api.v1.auth.session_auth import SessionAuth
+    auth = SessionAuth()
 
 
-@app.errorhandler(404)
+@ app.errorhandler(404)
 def not_found(error) -> str:
     """ Not found handler
     """
     return jsonify({"error": "Not found"}), 404
 
 
-@app.errorhandler(401)
+@ app.errorhandler(401)
 def unauthorized_error(error) -> str:
     """ Unauthorized handler
     """
     return jsonify({"error": "Unauthorized"}), 401
 
 
-@app.errorhandler(403)
+@ app.errorhandler(403)
 def forbidden_error(error) -> str:
     """ Forbidden handler
     """
     return jsonify({"error": "Forbidden"}), 403
 
 
-@app.before_request
+@ app.before_request
 def before_request() -> str:
     """ Before Request Handler
 
