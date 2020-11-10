@@ -27,4 +27,4 @@ venv.bak/
 test_python.py
 
 # Database
-.db_User.json
+.db_*
