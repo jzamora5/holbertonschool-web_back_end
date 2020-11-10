@@ -44,6 +44,9 @@ class SessionExpAuth(SessionAuth):
         if session_id is None:
             return None
 
+        if session_id not in self.user_id_by_session_id:
+            return None
+
         user_id = self.user_id_by_session_id.get(session_id)
 
         if user_id is None:
