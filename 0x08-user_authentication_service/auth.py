@@ -12,7 +12,7 @@ from uuid import uuid4
 def _hash_password(password: str) -> str:
     """ Returns a salted hash of the input password """
     hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
-    return hashed.decode()
+    return hashed
 
 
 def _generate_uuid() -> str:
@@ -51,7 +51,7 @@ class Auth:
         except NoResultFound:
             return False
 
-        user_password = user.hashed_password.encode()
+        user_password = user.hashed_password
         encoded_password = password.encode()
 
         if bcrypt.checkpw(encoded_password, user_password):
