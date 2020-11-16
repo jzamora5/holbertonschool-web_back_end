@@ -128,7 +128,7 @@ def update_password() -> str:
         reset_token = request.form['reset_token']
         new_password = request.form['new_password']
     except KeyError:
-        abort(400)
+        abort(403)
 
     try:
         AUTH.update_password(reset_token, new_password)
