@@ -11,7 +11,7 @@ from uuid import uuid4
 
 def _hash_password(password: str) -> str:
     """ Returns a salted hash of the input password """
-    encoded = password.encode()
+    encoded = password.encode('utf-8')
     hashed = bcrypt.hashpw(encoded, bcrypt.gensalt())
     return hashed
 
