@@ -13,6 +13,7 @@ AUTH = Auth()
 
 @app.route('/', methods=['GET'])
 def hello_world() -> str:
+    """ Base route for authentication service API """
     msg = {"message": "Bienvenue"}
     return jsonify(msg)
 
