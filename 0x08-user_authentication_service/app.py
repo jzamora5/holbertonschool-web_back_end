@@ -120,9 +120,7 @@ def reset_password() -> str:
 
 @app.route('/reset_password', methods=['PUT'])
 def update_password() -> str:
-    """Update the password. If the token is invalid,
-    catch the exception and respond with a 403 HTTP code.
-    """
+    """Update the password. PUT Method"""
 
     email = request.form.get('email')
     reset_token = request.form.get('reset_token')
