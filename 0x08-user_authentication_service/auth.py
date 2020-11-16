@@ -13,7 +13,7 @@ def _hash_password(password: str) -> str:
     """ Returns a salted hash of the input password """
     encoded = password.encode('utf-8')
     hashed = bcrypt.hashpw(encoded, bcrypt.gensalt())
-    return hashed
+    return hashed.decode()
 
 
 def _generate_uuid() -> str:
@@ -52,7 +52,7 @@ class Auth:
         except NoResultFound:
             return False
 
-        user_password = user.hashed_password
+        user_password = user.hashed_password.encode()
         encoded_password = password.encode()
 
         if bcrypt.checkpw(encoded_password, user_password):
@@ -69,12 +69,12 @@ class Auth:
 
         session_id = _generate_uuid()
 
-        self._db.update_user(user.id, session_i+session_id)
+        self._db.update_user(user.id, session_id=session_id)
 
         return session_id
 
-    def get_user_from_session_id(self, session_+: str) -> Union[str, None]:
-        """It takes a single session_id string +gument
+    def get_user_from_session_id(self, session_id: str) -> Union[str, None]:
+        """It takes a single session_id string argument
         Returns a string or None
         """
         if session_id is None:
