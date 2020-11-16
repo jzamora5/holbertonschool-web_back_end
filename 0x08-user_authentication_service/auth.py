@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ Authentication Module """
 
-from bcrypt import hashpw, gensalt
+import bcrypt
 from db import DB
 from sqlalchemy.orm.exc import NoResultFound
 from typing import Union
@@ -11,8 +11,7 @@ from uuid import uuid4
 
 def _hash_password(password: str) -> str:
     """ Returns a salted hash of the input password """
-    encoded = password.encode('utf-8')
-    hashed = hashpw(encoded, gensalt())
+    hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
     return hashed.decode()
 
 
