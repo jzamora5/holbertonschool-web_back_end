@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""API Routes for Authentication Service"""
 from auth import Auth
 from flask import (Flask,
                    jsonify,
