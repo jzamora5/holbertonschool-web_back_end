@@ -123,12 +123,10 @@ def update_password() -> str:
     """Update the password. If the token is invalid,
     catch the exception and respond with a 403 HTTP code.
     """
-    try:
-        email = request.form['email']
-        reset_token = request.form['reset_token']
-        new_password = request.form['new_password']
-    except KeyError:
-        abort(403)
+
+    email = request.form.get['email']
+    reset_token = request.form.get['reset_token']
+    new_password = request.form.get['new_password']
 
     try:
         AUTH.update_password(reset_token, new_password)
