@@ -3,7 +3,7 @@
 
 from parameterized import parameterized
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 from utils import (access_nested_map, get_json, memoize)
 import requests
 
@@ -68,7 +68,7 @@ class TestMemoize(unittest.TestCase):
                 return self.a_method()
 
         with patch.object(TestClass, 'a_method') as mock:
-            mock_class = TestClass()
-            mock_class.a_property()
-            mock_class.a_property()
+            test_class = TestClass()
+            test_class.a_property()
+            test_class.a_property()
             mock.assert_called_once()
