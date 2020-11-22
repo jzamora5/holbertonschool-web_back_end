@@ -73,7 +73,6 @@ class TestGithubOrgClient(unittest.TestCase):
 )
 class TestIntegrationGithubOrgClient(unittest.TestCase):
     """ Class for Integration test of fixtures """
-    base_url = "google/"
 
     @classmethod
     def setUpClass(cls):
