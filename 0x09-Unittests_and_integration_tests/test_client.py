@@ -75,7 +75,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
     """ Class for Integration test of fixtures """
     base_url = "google/"
 
-    @ classmethod
+    @classmethod
     def setUpClass(cls):
         """A class method called before tests in an individual class are run"""
         # def my_side_effect(url):
@@ -115,7 +115,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
             "apache-2.0"), self.apache2_repos)
         self.mock.assert_called()
 
-    @ classmethod
+    @classmethod
     def tearDownClass(cls):
         """A class method called after tests in an individual class have run"""
         cls.get_patcher.stop()
