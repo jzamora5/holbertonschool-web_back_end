@@ -1,6 +1,7 @@
 """ Module for trying out Babel i18n """
 from flask_babel import Babel, _
 from flask import Flask, render_template, request, flash
+
 app = Flask(__name__, template_folder='templates')
 babel = Babel(app)
 
@@ -18,7 +19,7 @@ app.config.from_object(Config)
 @app.route('/', methods=['GET'], strict_slashes=False)
 def hello_world() -> str:
     """Renders a Basic Template for Babel Implementation"""
-    return render_template("3-index.html")
+    return render_template("4-index.html")
 
 
 @babel.localeselector
