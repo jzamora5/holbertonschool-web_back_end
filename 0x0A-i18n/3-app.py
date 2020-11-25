@@ -1,12 +1,8 @@
 """ Module for trying out Babel i18n """
 from flask_babel import Babel, _
-from flask import Flask, render_template, flash
+from flask import Flask, render_template, request, flash
 app = Flask(__name__, template_folder='templates')
 babel = Babel(app)
-
-
-flash(_('home_title'))
-flash(_('home_header'))
 
 
 class Config(object):
@@ -28,6 +24,9 @@ def hello_world() -> str:
 @babel.localeselector
 def get_locale() -> str:
     """Select a language translation to use for that request"""
+    locale = request.args.get("locale")
+    if locale and locale in app.config['LANGUAGES']:
+        return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
