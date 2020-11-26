@@ -50,7 +50,7 @@ def before_request_func():
 @app.route('/', methods=['GET'], strict_slashes=False)
 def hello_world() -> str:
     """Renders a Basic Template for Babel Implementation"""
-    return render_template("5-index.html", username="Larry")
+    return render_template("5-index.html")
 
 
 @babel.localeselector
