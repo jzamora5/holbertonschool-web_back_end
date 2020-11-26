@@ -43,6 +43,7 @@ def get_user(login_as: str) -> Union[dict, None]:
 
 @app.before_request
 def before_request_func():
+    """ Operations that happen before any request """
     login_as = request.args.get("login_as")
     user = get_user(login_as)
     g.user = user
