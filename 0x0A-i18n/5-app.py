@@ -26,7 +26,7 @@ users = {
 }
 
 
-def get_user():
+def get_user() -> Union[dict, None]:
     """ Returns a user dictionary or
     None if the ID cannot be found or
     if login_as was not passed.
@@ -42,7 +42,7 @@ def get_user():
 
 
 @app.before_request
-def before_request_func():
+def before_request():
     """ Operations that happen before any request """
     user = get_user()
     g.user = user
