@@ -33,9 +33,6 @@ def get_user() -> Union[dict, None]:
     """
     login_as = request.args.get("login_as")
 
-    if login_as is None:
-        return None
-
     try:
         user = users[int(login_as)]
     except Exception:
