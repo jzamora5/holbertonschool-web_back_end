@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """ Module for trying out Babel i18n """
 from datetime import datetime
 from flask_babel import Babel, _, format_datetime
@@ -11,6 +12,7 @@ babel = Babel(app)
 
 
 class Config(object):
+    """ Configuration Class for Babel """
 
     LANGUAGES = ['en', 'fr']
     BABEL_DEFAULT_LOCALE = 'en'
