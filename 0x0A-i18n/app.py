@@ -45,7 +45,7 @@ def get_user() -> Union[dict, None]:
 
 
 @app.before_request
-def before_request_func():
+def before_request():
     """ Operations that happen before any request """
     user = get_user()
     g.user = user
