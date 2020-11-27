@@ -26,7 +26,7 @@ users = {
 }
 
 
-def get_user() -> Union[dict, None]:
+def get_user():
     """ Returns a user dictionary or
     None if the ID cannot be found or
     if login_as was not passed.
