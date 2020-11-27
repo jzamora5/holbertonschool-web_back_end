@@ -31,9 +31,9 @@ def get_user() -> Union[dict, None]:
     None if the ID cannot be found or
     if login_as was not passed.
     """
-    login_as = request.args.get("login_as")
 
     try:
+        login_as = request.args.get("login_as")
         user = users[int(login_as)]
     except Exception:
         user = None
