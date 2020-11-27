@@ -26,11 +26,13 @@ users = {
 }
 
 
-def get_user(login_as: str) -> Union[dict, None]:
+def get_user() -> Union[dict, None]:
     """ Returns a user dictionary or
     None if the ID cannot be found or
     if login_as was not passed.
     """
+    login_as = request.args.get("login_as")
+
     if login_as is None:
         return None
 
@@ -45,8 +47,7 @@ def get_user(login_as: str) -> Union[dict, None]:
 @app.before_request
 def before_request_func():
     """ Operations that happen before any request """
-    login_as = request.args.get("login_as")
-    user = get_user(login_as)
+    user = get_user()
     g.user = user
 
 
