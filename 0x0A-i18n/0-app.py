@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ Module for trying out Babel i18n """
 
 from flask import Flask, render_template
@@ -12,4 +14,4 @@ def hello_world() -> str:
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
