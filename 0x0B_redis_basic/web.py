@@ -29,7 +29,7 @@ def count_requests(method: Callable) -> Callable:
 
 
 @count_requests
-def get_page(url) -> str:
+def get_page(url: str) -> str:
     """Uses the requests module to obtain the HTML
     content of a particular URL and returns it.
     """
