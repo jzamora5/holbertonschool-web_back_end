@@ -86,14 +86,14 @@ class Cache:
 
         return random_key
 
-    # def get(self, key: str,
-    #         fn: Optional[Callable] = None) -> Union[str, bytes, int, float]:
-    #     """ Reading from Redis and recovering original type """
-    #     value = self._redis.get(key)
-    #     if fn:
-    #         value = fn(value)
+    def get(self, key: str,
+            fn: Optional[Callable] = None) -> Union[str, bytes, int, float]:
+        """ Reading from Redis and recovering original type """
+        value = self._redis.get(key)
+        if fn:
+            value = fn(value)
 
-    #     return value
+        return value
 
     def get_str(self, key: str) -> str:
         """ Parameterizes a value from redis to str """
