@@ -16,6 +16,7 @@ def count_requests(method: Callable) -> Callable:
     @wraps(method)
     def wrapper(url):
         """ Wrapper for decorator functionality """
+        r.incr(f"count:{url}")
         cached_html = r.get(f"cached:{url}")
         if cached_html:
             return cached_html.decode('utf-8')
@@ -32,7 +33,6 @@ def get_page(url) -> str:
     """Uses the requests module to obtain the HTML
     content of a particular URL and returns it.
     """
-    r.incr(f"count:{url}")
     req = requests.get(url)
 
     return req.text
