@@ -34,5 +34,4 @@ def get_page(url) -> str:
     content of a particular URL and returns it.
     """
     req = requests.get(url)
-
     return req.text
