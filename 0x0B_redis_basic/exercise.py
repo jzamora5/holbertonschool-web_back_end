@@ -91,7 +91,7 @@ class Cache:
         if fn:
             value = fn(value)
 
-        return value.decode('utf-8')
+        return value
 
     def get_str(self, key: str) -> str:
         """ Parameterizes a value from redis to str """
