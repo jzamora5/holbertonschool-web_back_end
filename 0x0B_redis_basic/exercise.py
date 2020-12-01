@@ -73,8 +73,8 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
-    @count_calls
     @call_history
+    @count_calls
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """Store the input data in Redis using a
         random key and return the key.
@@ -91,7 +91,7 @@ class Cache:
         if fn:
             value = fn(value)
 
-        return value
+        return value.decode('utf-8')
 
     def get_str(self, key: str) -> str:
         """ Parameterizes a value from redis to str """
