@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """ MongoDB Operations with Python using pymongo """
-import pymongo
 
 
 def list_all(mongo_collection):
