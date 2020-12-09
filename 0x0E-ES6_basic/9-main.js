@@ -1,13 +1,15 @@
+// Compiler Module
+
 let compiler = require('./compiler');
 
 let input9 = '9-getFullBudget.js';
 let output9 = '9-compiled.js';
-let output9Mod = 'X9-compiled.js';
 
 compiler(input9, output9);
 
-// Replace Reference to Task 7
+// Replace Reference to Task 7 in Compiled Task 9
 
+let output9Mod = 'X9-compiled.js';
 let input7 = '7-getBudgetObject.js';
 let output7 = '7-compiled.js';
 
@@ -26,6 +28,8 @@ let result = data.replace(str7, output7);
 fs.writeFileSync(output9Mod, result, 'utf8', function (err) {
   if (err) return console.log(err);
 });
+
+// Perform Actual Test
 
 let getFullBudgetObject = require(`./${output9Mod}`).default;
 
