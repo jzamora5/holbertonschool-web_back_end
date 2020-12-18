@@ -10,7 +10,7 @@ class Currency {
   }
 
   set code(code) {
-    this._code = code;
+    if (typeof code === 'string') this._code = code;
   }
 
   // name
@@ -19,7 +19,7 @@ class Currency {
   }
 
   set name(name) {
-    this._name = name;
+    if (typeof name === 'string') this._name = name;
   }
 
   displayFullCurrency() {
