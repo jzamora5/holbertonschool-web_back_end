@@ -9,16 +9,12 @@ class Building {
       );
     }
 
-    this.sqft = sqft;
+    this._sqft = sqft;
   }
 
   // sqft
   get sqft() {
     return this._sqft;
-  }
-
-  set sqft(sqft) {
-    if (typeof sqft === 'number') this._sqft = sqft;
   }
 }
 
