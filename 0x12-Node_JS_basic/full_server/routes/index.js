@@ -2,7 +2,7 @@ import express from 'express';
 import AppController from '../controllers/AppController';
 import StudentsController from '../controllers/StudentsController';
 
-function controllerRouting(app) {
+function controllerRouting(app, DATABASE) {
   const router = express.Router();
   app.use('/', router);
 
@@ -11,11 +11,11 @@ function controllerRouting(app) {
   });
 
   router.get('/students', (req, res) => {
-    StudentsController.getAllStudents(req, res);
+    StudentsController.getAllStudents(req, res, DATABASE);
   });
 
   router.get('/students/:major', (req, res) => {
-    StudentsController.getAllStudentsByMajor(req, res);
+    StudentsController.getAllStudentsByMajor(req, res, DATABASE);
   });
 }
 

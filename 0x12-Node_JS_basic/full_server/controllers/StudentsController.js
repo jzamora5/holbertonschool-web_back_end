@@ -1,11 +1,7 @@
 import readDatabase from '../utils';
 
-const args = process.argv.slice(2);
-
-const DATABASE = args[0];
-
 class StudentsController {
-  static getAllStudents(request, response) {
+  static getAllStudents(request, response, DATABASE) {
     readDatabase(DATABASE)
       .then((fields) => {
         const students = [];
@@ -33,7 +29,7 @@ class StudentsController {
       });
   }
 
-  static getAllStudentsByMajor(request, response) {
+  static getAllStudentsByMajor(request, response, DATABASE) {
     const { major } = request.params;
 
     if (major !== 'CS' && major !== 'SWE') {
