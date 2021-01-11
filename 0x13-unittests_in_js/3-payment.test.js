@@ -4,15 +4,17 @@ var { expect } = require('chai');
 const sendPaymentRequestToApi = require('./3-payment');
 const Utils = require('./utils');
 
-it('has the same math', () => {
-  const spyUtils = sinon.spy(Utils, 'calculateNumber');
-  const spyConsole = sinon.spy(console, 'log');
+describe('Spies', function () {
+  it('has the same math', () => {
+    const spyUtils = sinon.spy(Utils, 'calculateNumber');
+    const spyConsole = sinon.spy(console, 'log');
 
-  sendPaymentRequestToApi(100, 20);
+    sendPaymentRequestToApi(100, 20);
 
-  expect(spyUtils.calledOnceWith('SUM', 100, 20)).to.be.true;
-  expect(spyConsole.calledOnceWith('The total is: 120')).to.be.true;
+    expect(spyUtils.calledOnceWith('SUM', 100, 20)).to.be.true;
+    expect(spyConsole.calledOnceWith('The total is: 120')).to.be.true;
 
-  spyUtils.restore();
-  spyConsole.restore();
+    spyUtils.restore();
+    spyConsole.restore();
+  });
 });
