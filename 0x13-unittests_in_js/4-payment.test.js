@@ -12,8 +12,8 @@ describe('Stubs', function () {
 
     sendPaymentRequestToApi(100, 20);
 
-    expect(stubUtils.calledOnceWith('SUM', 100, 20)).to.be.true;
-    expect(spyConsole.calledOnceWith('The total is: 10')).to.be.true;
+    expect(stubUtils.calledOnceWithExactly('SUM', 100, 20)).to.be.true;
+    expect(spyConsole.calledOnceWithExactly('The total is: 10')).to.be.true;
 
     stubUtils.restore();
     spyConsole.restore();
