@@ -14,6 +14,12 @@ describe('calculateNumber', function () {
     });
   });
 
+  describe('One round 2', function () {
+    it('should return 5', function () {
+      assert.strictEqual(calculateNumber(3.7, 1), 5);
+    });
+  });
+
   describe('Two round', function () {
     it('should return 5', function () {
       assert.strictEqual(calculateNumber(1.2, 3.7), 5);
