@@ -8,7 +8,10 @@ function sendNotification(phoneNumber, message) {
   );
 }
 
-queue.process('push_notification_code', (job, done) => {
-  sendNotification(job.data.phoneNumber, job.data.message);
+const queueName = 'push_notification_code';
+
+queue.process(queueName, (job, done) => {
+  const { phoneNumber, message } = job.data;
+  sendNotification(phoneNumber, message);
   done();
 });
